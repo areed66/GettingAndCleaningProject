@@ -7,7 +7,48 @@ Downloading Data
 
 Import Data 
 > read all variables from each file downloaded
--activities
+  - activities: (code, activity); 2 Columns, activities and their associated code
+  - features: (n, functions); 2 Columns, Index and associated function
+  - x_test: (features); 1 Column, test data results
+  - y_test: (code); 1 Column, test labels
+  - subject_test: (subject); 1 Column, Subject labels on test data
+  - subject_train: (subject); 1 Column, Subject labels on train data
+  - x_train: (features); 1 Column, train data results
+  - y_train: (features); 1 Column, train data results
 
 Step 1
 Merge the training and the test sets to create one data set.
+  - combine rows with rbind(), rbind(subject_train, subject_test), rbind(x_train, x_test), rbind(y_train, y_test)
+  - then combin those three rbind()'s into cbind merging the columns.
+
+
+Step 2
+Extract only the measurements on the mean and standard deviation for each measurement.
+  - Select columns subject, code, columns that contain 'mean', and columns that contain 'standard deviation' using the Pipe '%>%' command from dplyr library.
+
+
+Step 3
+Uses descriptive activity names to name the activities in the data set
+  - take the activities object and merge it to tidy data object (td)
+
+
+Step 4
+Appropriately labels the data set with descriptive variable names.
+  - rename column name from 'code' to 'activity' 
+  - rename "Mag", "Magnitude"
+  - rename "-mean()", "Mean"
+  - rename "-std()", "STD"
+  - rename "Acc", "Accelerometer"
+  - rename "^t", "Time"
+  - rename "^f", "Frequency"
+  - rename "tBody", "TimeBody"
+  - rename "BodyBody", "Body"
+  - rename "Gyro", "Gyroscope"
+  - rename "-freq()", "Frequency"
+  - rename "angle", "Angle"
+  - rename "gravity", "Gravity"
+
+Step 5
+From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+  -  'NewData.txt' is created and is a tidy dataset.  It summarizes the data by activty.
+

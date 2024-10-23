@@ -1,0 +1,13 @@
+# Getting And Cleaning Project
+
+Downloading Data
+> Download zip file in URL link
+
+> Unzip file in directory
+
+Import Data 
+> read all variables from each file downloaded
+-activities
+
+Step 1
+Merge the training and the test sets to create one data set.
